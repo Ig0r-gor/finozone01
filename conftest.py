@@ -8,3 +8,4 @@ def driver(request):
     driver.maximize_window()
     driver.implicitly_wait(5)
     yield driver
+    
