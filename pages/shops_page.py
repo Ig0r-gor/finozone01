@@ -1,9 +1,21 @@
-from config import url_01
+from pages.ozon_page import OzonPage
+from selenium.webdriver.common.by import By
+from config import url_shop
 
-class ShopPage():
+
+class ShopPage(OzonPage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
-    def get_shops(self):
-        return self.driver.find_elements_by_xpath("//*[contains(text(), 'Книги')]")
+        page = OzonPage(driver)
+        page.gotourl(url_shop)
+
+
+    def allshops(self):
+        return self.driver.find_elements(By.XPATH, '//div[@data-widget="sellerCategory"]//a')
+
+
+    def nextlist(self):
+        return self.driver.find_element(By.XPATH, '//div[@data-widget="sellerCategory"]/div[4]')
+
