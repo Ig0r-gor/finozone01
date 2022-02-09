@@ -1,4 +1,5 @@
 from config import  url_01
+from selenium.webdriver.common.by import By
 # from selenium.webdriver.common.keys import Keys
 # import time, os
 
@@ -11,8 +12,11 @@ class OzonPage():
     def visit(self):
         self.driver.get(url_01)
 
-    def get_shops(self):
-        return self.driver.find_element_by_xpath("//*[contains(text(), 'Магазины')]")
+    def gotourl(self, url):
+        self.driver.get(url)
+
+    # def get_shops(self):
+    #     return self.driver.find_element_by_xpath("//*[contains(text(), 'Магазины')]")
 
     def ontopmenu(self):
         return self.driver.find_element_by_id('stickyHeader')
@@ -27,3 +31,12 @@ class OzonPage():
 
     def footer(self):
         return self.driver.find_element_by_tag_name('footer')
+
+    def go_back(self):
+        self.driver.back()
+
+    def input_field(self):
+        return self.driver.find_element(By.NAME, 'text')
+
+    def search_btn(self):
+        return self.driver.find_element(By.XPATH, '//form/button')
