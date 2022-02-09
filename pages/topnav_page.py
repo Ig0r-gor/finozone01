@@ -20,7 +20,7 @@ class TopNavPage():
 
     def navigate_low_list(self):
         # копируем у всех элементов навигации (меню под поиском)
-        navlow = self.driver.find_elements(By.XPATH, "//li[@class='rb']/a")
+        navlow = self.driver.find_elements(By.XPATH, "//ul[@data-widget='horizontalMenu']/li")
         # navlow_list = self.driver.find_elements(By.CSS_SELECTOR, "li.rb")
         # num_of_href = len(navlow_list)
         # print(num_of_href)
@@ -28,7 +28,7 @@ class TopNavPage():
 
     def navigate_low_elem(self, i):
         # копируем у всех элементов навигации (меню под поиском)
-        navlow = self.driver.find_elements(By.XPATH, "//li[@class='rb']/a")
+        navlow = self.driver.find_elements(By.XPATH, "//ul[@data-widget='horizontalMenu']/li")
         # navlow_list = self.driver.find_elements(By.CSS_SELECTOR, "li.rb")
         # num_of_href = len(navlow_list)
         # print(num_of_href)
@@ -47,3 +47,6 @@ class TopNavPage():
 
     def visit_url(self, url):
         self.driver.get(url)
+
+    def go_back(self):
+        self.driver.back()
